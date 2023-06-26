@@ -20,7 +20,7 @@ def recognize():
 
     # Save the uploaded audio file
     audio_path = 'audio.wav'
-    file.save(audio_path)
+    #file.save(audio_path)
 
     # Perform speech recognition
     transcription = transcribe_audio(audio_path)
