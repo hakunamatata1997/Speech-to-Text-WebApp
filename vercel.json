@@ -1,24 +1,24 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "app.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "5mb",
-        "functions": {
-          "preBuild": "bash install_dependencies.sh"
-        }
-      }
+      "use": "@vercel/python"
     }
+  ],
+  "env": {
+    "PIP_TARGET": "/vercel/path0/.venv",
+    "PIP_GLOBAL_TARGET": "/vercel/path0/.venv",
+    "VERCEL_LOG_OUTPUT": "1"
+  },
+  "install": [
+    "pip install -U flask openai-whisper"
   ],
   "routes": [
     {
       "src": "/(.*)",
       "dest": "/app.py"
     }
-  ],
-  "env": {
-    "PYTHON_VERSION": "3.8"
-  }
+  ]
 }
 
