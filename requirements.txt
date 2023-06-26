@@ -1,2 +1,2 @@
 flask
-whisper
+openai-whisper
