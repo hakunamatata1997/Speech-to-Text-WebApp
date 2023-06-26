@@ -1,24 +1,18 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "app.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "env": {
-    "PIP_TARGET": "/vercel/path0/.venv",
-    "PIP_GLOBAL_TARGET": "/vercel/path0/.venv",
-    "VERCEL_LOG_OUTPUT": "1"
-  },
-  "install": [
-    "pip install -U flask openai-whisper"
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/app.py"
-    }
-  ]
-}
-
+    "builds": [
+        {
+            "src": "app.py",
+            "use": "@vercel/python"
+        },
+        {
+            "src": "static/**",
+            "use": "@vercel/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "app.py"
+        }
+    ]
+}	
