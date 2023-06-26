@@ -2,7 +2,13 @@
   "builds": [
     {
       "src": "app.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "5mb",
+        "functions": {
+          "preBuild": "bash install_dependencies.sh"
+        }
+      }
     }
   ],
   "routes": [
@@ -13,16 +19,6 @@
   ],
   "env": {
     "PYTHON_VERSION": "3.8"
-  },
-  "functions": {
-    "api/**/*.py": {
-      "runtime": "python3.8"
-    }
-  },
-  "dependencies": {
-    "python": "3.8.1",
-    "pip": "latest"
-  },
-  "installCommand": "pip install -r requirements.txt && pip install -U openai-whisper"
+  }
 }
 
