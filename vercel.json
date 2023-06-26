@@ -1,18 +1,28 @@
 {
-    "builds": [
-        {
-            "src": "app.py",
-            "use": "@vercel/python"
-        },
-        {
-            "src": "static/**",
-            "use": "@vercel/static"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "app.py"
-        }
-    ]
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/app.py"
+    }
+  ],
+  "env": {
+    "PYTHON_VERSION": "3.8"
+  },
+  "functions": {
+    "api/**/*.py": {
+      "runtime": "python3.8"
+    }
+  },
+  "dependencies": {
+    "python": "3.8.1",
+    "pip": "latest"
+  },
+  "installCommand": "pip install -r requirements.txt && pip install -U openai-whisper"
 }
+
