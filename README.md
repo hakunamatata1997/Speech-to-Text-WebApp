@@ -15,7 +15,7 @@ This is a web application that performs speech recognition on audio files. It al
 
 - Python 3.6 or higher
 - Flask (install using `pip install flask`)
-- Whisper (install using `pip install whisper`)
+- Whisper (install using `pip install openai-whisper`)
 
 
 ### Installation
